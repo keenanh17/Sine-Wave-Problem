@@ -1,0 +1,37 @@
+# Code used to create and plot the graph
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Amount of cycles
+cycles = 5
+
+# Sinusoidal wave frequency
+frequency = 1
+
+# samples
+samples = 1000
+
+# x axis (time in seconds)
+x = np.arange(0, cycles / frequency, 1 / samples)
+
+# Perfect sinusoidal wave
+perfect_wave = np.sin(2 * np.pi * frequency * x)
+
+# Random noise
+amplitude = 0.05 
+noise = np.random.normal(0, amplitude, len(x))
+
+# Superimpose wave with noise 
+superimposed_wave = perfect_wave + noise
+
+# Plot
+plt.figure(figsize=(10, 6))
+plt.plot(x, perfect_wave, label='Perfect Sinusoidal Wave', color='blue')
+plt.plot(x, superimposed_wave, label='Superimposed Wave with Noise', color='red', alpha=0.4)
+plt.title('Perfect Sinusoidal Wave vs Superimposed Wave with Noise')
+plt.xlabel('Time (s)')
+plt.ylabel('Amplitude')
+plt.legend()
+plt.grid(True)
+plt.show()
