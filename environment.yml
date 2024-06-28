@@ -1,0 +1,7 @@
+name: practical_python
+channels:
+  - defaults
+dependencies:
+  - python=3.11.5
+  - numpy
+  - matplotlib
